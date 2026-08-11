@@ -4,8 +4,8 @@
 
 ## 使用
 
-1. 把 `zhangmeng.conf` 里的 `RAW_BASE` 改成脚本所在目录的 raw 地址。
-2. 在 Quantumult X 添加远程重写，订阅 `zhangmeng.conf` 的 raw 地址。
+1. 在 Quantumult X 添加远程重写，订阅 `zhangmeng.conf` 的 raw 地址。
+2. 推荐订阅地址：`https://raw.githubusercontent.com/xihazhiwang/quanx/main/rewrite_remote/zhangmeng/zhangmeng.conf`
 3. 打开 MitM，并安装/信任证书。
 4. 打开掌上英雄联盟，触发开屏、首页、资讯流、活动弹窗。
 5. 如果仍有广告，重新导出 HAR，重点搜索 `platflashbox`、`floatbox`、`platbanner`、`platstrongshell`、`bottomtab_tip`、`activity`。
@@ -22,22 +22,16 @@
 
 ## 规则发布
 
-如果仓库 raw 地址是：
+当前仓库 raw 目录是：
 
 ```text
-https://raw.githubusercontent.com/<user>/<repo>/main/rewrite_remote/zhangmeng
+https://raw.githubusercontent.com/xihazhiwang/quanx/main/rewrite_remote/zhangmeng
 ```
 
-则把 `zhangmeng.conf` 中的：
+脚本地址是：
 
 ```text
-RAW_BASE/zhangmeng.adblock.js
-```
-
-替换为：
-
-```text
-https://raw.githubusercontent.com/<user>/<repo>/main/rewrite_remote/zhangmeng/zhangmeng.adblock.js
+https://raw.githubusercontent.com/xihazhiwang/quanx/main/rewrite_remote/zhangmeng/zhangmeng.adblock.js
 ```
 
 ## 常见需要补的点
