@@ -1,0 +1,43 @@
+name: Update Startup Ads
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 04:23 Asia/Shanghai. Avoid the top of the hour.
+    - cron: "23 20 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-startup-ads
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate startup ad rewrite
+        run: python scripts/update_startup_ads.py
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- rewrite_remote/startup_ads/startup_ads.conf; then
+            echo "No startup ad rewrite changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rewrite_remote/startup_ads/startup_ads.conf
+          git commit -m "Update aggregated startup ad rewrite"
+          git push

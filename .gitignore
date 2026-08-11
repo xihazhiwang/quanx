@@ -1,2 +1,4 @@
 .DS_Store
 *.har
+__pycache__/
+*.pyc
