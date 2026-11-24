@@ -3,3 +3,4 @@ hrxinxing.cn
 spaceship.com
 cip.cc
 ghcr.io
+cn.pool.ntp.org
