@@ -2,3 +2,4 @@ xinxinghr.com
 hrxinxing.cn
 spaceship.com
 cip.cc
+ghcr.io
